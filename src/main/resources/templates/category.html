@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Category</title>
+</head>
+<body>
+<h2>Category</h2>
+<h3 th:text="${category.name}">Category Name</h3>
+<ul>
+    <li th:each="note : ${category.notes}">
+        <a th:href="@{/note/{noteId}(noteId=${note.id})}" th:text="${note.title}">Note Title</a>
+    </li>
+</ul>
+</body>
+</html>
