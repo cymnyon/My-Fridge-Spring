@@ -44,6 +44,4 @@ public class UserController {
         // Redirect the user to their dashboard or categories page
         return "redirect:/dashboard";
     }
-
-    // Other endpoints...
 }

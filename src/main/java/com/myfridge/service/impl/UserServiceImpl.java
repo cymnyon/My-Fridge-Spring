@@ -22,8 +22,6 @@ public class UserServiceImpl extends UserService {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
         // Fetch user from database using username and return it
-        // Implement this part according to your data model
-        // For example: userRepository.findByUsername(username);
         return null;
     }
 
@@ -42,6 +40,4 @@ public class UserServiceImpl extends UserService {
     public User createUser(User user) {
         return userRepository.save(user);
     }
-
-    // Implement other methods if needed
 }

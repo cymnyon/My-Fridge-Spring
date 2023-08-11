@@ -24,7 +24,4 @@ public abstract class NoteService {
     public Note getNoteById(Long noteId) {
         return noteRepository.findById(noteId).orElse(null);
     }
-
-    // Add more methods as needed for note-related operations
-
 }

@@ -25,6 +25,4 @@ public class CategoryController {
         // Pass the category and its notes to the template
         return "category"; // Return the category template
     }
-
-    // Other endpoints...
 }

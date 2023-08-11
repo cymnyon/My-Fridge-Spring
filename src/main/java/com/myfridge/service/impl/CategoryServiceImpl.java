@@ -34,6 +34,4 @@ public class CategoryServiceImpl extends CategoryService {
         return categoryRepository.save(category);
     }
 
-    // Add more methods as needed for category-related operations
-
 }

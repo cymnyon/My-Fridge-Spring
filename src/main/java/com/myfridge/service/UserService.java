@@ -14,7 +14,6 @@ public abstract class UserService {
     
     @Autowired
     public UserService() {
-        this.userRepository = userRepository;
     }
 
     public User getUserByUsername(String username) {
@@ -32,7 +31,5 @@ public abstract class UserService {
     public abstract User findByUsername(String username);
 
     public abstract User createUser(User user);
-
-    // Add more methods as needed for user-related operations
 
 }

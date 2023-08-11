@@ -27,6 +27,4 @@ public abstract class CategoryService {
         return categoryRepository.save(category);
     }
 
-    // Add more methods as needed for category-related operations
-
 }

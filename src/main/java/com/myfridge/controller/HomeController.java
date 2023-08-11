@@ -55,7 +55,6 @@ public class HomeController {
     public String addText(@RequestParam("category_id") Long categoryId,
                           @RequestParam("text") String text,
                           RedirectAttributes redirectAttributes) {
-        // Your logic here
         return "redirect:/category_notes";
     }
 }

@@ -32,6 +32,4 @@ public class NoteServiceImpl extends NoteService {
         return noteRepository.findById(noteId).orElse(null);
     }
 
-    // Add more methods as needed for note-related operations
-
 }

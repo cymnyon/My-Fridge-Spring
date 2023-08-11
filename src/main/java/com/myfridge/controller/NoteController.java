@@ -25,6 +25,4 @@ public class NoteController {
         // Pass the note to the template
         return "note"; // Return the note template
     }
-
-    // Other endpoints...
 }
