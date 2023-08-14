@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MyFridgeApplication {
-
-    private static final Logger logger = LoggerFactory.getLogger(MyFridgeApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(MyFridgeApplication.class, args);
     }

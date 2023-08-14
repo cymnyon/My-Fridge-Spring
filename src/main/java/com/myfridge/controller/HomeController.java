@@ -21,9 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
-    private final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
     private final UserService userService;
 
     @Autowired

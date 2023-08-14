@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/note")
 public class NoteController {
-
-    private final Logger logger = LoggerFactory.getLogger(NoteController.class);
-
     @Autowired
     private NoteService noteService;
 

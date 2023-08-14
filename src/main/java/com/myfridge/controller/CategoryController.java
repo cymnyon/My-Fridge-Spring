@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-
-    private final Logger logger = LoggerFactory.getLogger(CategoryController.class);
-
     @Autowired
     private CategoryService categoryService;
 
