@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>My Fridge</title>
 </head>
 <body>
 <div class="container">
     <h1>Welcome to MyFridge!</h1>
-    <p>This is <span></span> main page</p>
+    <p>This is main page</p>
     <div class="buttons">
-        <a href="/login" class="btn btn-primary">Log In</a>
-        <a href="/signup" class="btn btn-secondary">Sign Up</a>
+        <a th:href="@{/login}" class="btn btn-primary">Log In</a>
+        <a th:href="@{/signup}" class="btn btn-secondary">Sign Up</a>
     </div>
 </div>
 </body>

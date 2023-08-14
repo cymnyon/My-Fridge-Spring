@@ -1,5 +1,6 @@
 package com.myfridge.controller;
 
+import com.myfridge.model.Category;
 import com.myfridge.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,9 @@ public class CategoryController {
     @GetMapping("/{categoryId}")
     public String viewCategory(@PathVariable Long categoryId, Model model) {
         // Fetch the category by ID using categoryService
+        Category category = categoryService.getCategoryById(categoryId);
+        model.addAttribute("category", category);
+
         // Pass the category and its notes to the template
         return "category"; // Return the category template
     }
