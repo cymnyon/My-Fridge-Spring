@@ -30,6 +30,9 @@ public abstract class UserService {
 
     public abstract User findByUsername(String username);
 
-    public abstract User createUser(User user);
+    public abstract boolean validateUser(String username, String password);
 
+    public abstract boolean isUsernameTaken(String username);
+
+    public abstract User createUser(String username, String password, String nickname);
 }

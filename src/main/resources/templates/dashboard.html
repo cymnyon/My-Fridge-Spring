@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<h2>Welcome to Your Dashboard, <span th:text="${user.nickname}" th:remove="tag"></span>!</h2>
+
+<h3>Your Categories:</h3>
+<ul>
+    <li th:each="category : ${categories}">
+        <span th:text="${category.title}"></span>
+        <a th:href="@{'/category/' + ${category.id}}">View</a>
+        <a th:href="@{'/category/edit/' + ${category.id}}">Edit</a>
+        <a th:href="@{'/category/delete/' + ${category.id}}">Delete</a>
+    </li>
+</ul>
+
+<h3>Add New Category:</h3>
+<form th:action="@{/category/add}" method="post">
+    <input type="text" name="title" placeholder="Category Title" required>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>

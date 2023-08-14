@@ -1,6 +1,7 @@
 package com.myfridge.service.impl;
 
 import com.myfridge.model.Category;
+import com.myfridge.model.User;
 import com.myfridge.repository.CategoryRepository;
 import com.myfridge.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import java.util.List;
 
 @Service
 public class CategoryServiceImpl extends CategoryService {
-
     private final CategoryRepository categoryRepository;
 
     @Autowired
@@ -25,13 +25,7 @@ public class CategoryServiceImpl extends CategoryService {
     }
 
     @Override
-    public List<Category> getCategoriesByUserId(Long userId) {
-        return categoryRepository.findByUserId(userId);
+    public List<Category> getCategoriesForUser(User user) {
+        return categoryRepository.findByUser(user);
     }
-
-    @Override
-    public Category saveCategory(Category category) {
-        return categoryRepository.save(category);
-    }
-
 }
