@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Category</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Category</h1>
+    <form th:action="@{/edit_category/{id}(id=${category.id})}" method="post">
+        <label for="title">Category Title:</label>
+        <input type="text" id="title" name="title" th:value="${category.title}" required>
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>
