@@ -69,10 +69,11 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String handleSignup(@RequestParam String username, @RequestParam String password, @RequestParam String nickname) {
+    public String handleSignup(@RequestParam String username, @RequestParam String password,
+                               @RequestParam String nickname, RedirectAttributes redirectAttributes) {
         // Check if the username is already taken
         if (userService.isUsernameTaken(username)) {
-            redirectAttributes.addAttribute("error", "Username is already taken.")
+            redirectAttributes.addAttribute("error", "Username is already taken.");
             return "redirect:/signup";
         } else {
             // Create a new user and save it to the database

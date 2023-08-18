@@ -29,6 +29,7 @@ public class CategoryServiceImpl extends CategoryService {
         return categoryRepository.findByUser(user);
     }
 
+    @Override
     public Category createCategory(User user, String title) {
         Category category = new Category();
         category.setUser(user);

@@ -22,6 +22,9 @@ public class Note {
     @Column(nullable = false)
     private String postType;
 
+    @Column(nullable = false) // Add this column
+    private String noteTitle;
+
     public Long getId() {
         return id;
     }
@@ -60,5 +63,13 @@ public class Note {
 
     public void setPostType(String postType) {
         this.postType = postType;
+    }
+
+    public String getNoteTitle() {
+        return noteTitle;
+    }
+
+    public void setNoteTitle(String noteTitle) {
+        this.noteTitle = noteTitle;
     }
 }
