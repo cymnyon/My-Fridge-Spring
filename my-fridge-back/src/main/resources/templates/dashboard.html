@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="dashboard-content">
+    <!-- Display user's name -->
+    <h1>Welcome to Your Fridge!</h1>
+
+    <!-- Display user's categories -->
+    <ul class="category-list">
+        <li th:each="category : ${categories}">
+            <!-- Display category title -->
+            <h3 class="editable" data-id="${category.id}" th:text="${category.name}" contenteditable="true"></h3>
+
+            <!-- Edit category button -->
+            <button class="btn btn-primary edit-button" data-id="${category.id}">Edit</button>
+
+            <!-- Remove category button -->
+            <a th:href="@{/remove_category/{id}(id=${category.id})}" class="btn btn-danger">Remove</a>
+        </li>
+    </ul>
+
+    <!-- Add category form -->
+    <form id="addCategoryForm">
+        <input type="text" id="categoryTitle" placeholder="Enter category name" required>
+        <button type="submit">Add Category</button>
+    </form>
+
+    <!-- Sign out button -->
+    <form id="signOutForm" method="post" action="/logout">
+        <button type="submit">Sign Out</button>
+    </form>
+</div>
+
+<!-- JavaScript for inline editing and adding category -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const categoryId = button.getAttribute('data-id');
+                const categoryTitle = document.querySelector(`[data-id="${categoryId}"]`).textContent;
+
+                // Edit the category using AJAX
+                fetch(`/category/edit/${categoryId}`, {
+                    method: 'POST',
+                    body: JSON.stringify({ title: categoryTitle }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle success or error
+                })
+                .catch(error => {
+                    // Handle error
+                });
+            });
+        });
+
+        const addCategoryForm = document.getElementById('addCategoryForm');
+        addCategoryForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const categoryTitle = document.getElementById('categoryTitle').value;
+
+            // Add the new category using AJAX
+            fetch('/category/add', {
+                method: 'POST',
+                body: JSON.stringify({ title: categoryTitle }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle success or error
+                if (data === "Category added successfully") {
+                    // Refresh the page to update the categories list
+                    location.reload();
+                }
+            })
+            .catch(error => {
+                // Handle error
+            });
+        });
+
+        // Function to remove a category
+        function removeCategory(categoryId) {
+            fetch(`/category/remove/${categoryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle success or error
+                if (data === "Category removed successfully") {
+                    // Remove the category element from the list
+                    const categoryElement = document.querySelector(`[data-id="${categoryId}"]`).parentNode;
+                    categoryElement.remove();
+                }
+            })
+            .catch(error => {
+                // Handle error
+            });
+        }
+    });
+</script>
+</body>
+</html>
